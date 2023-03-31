@@ -1,9 +1,23 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.icon {
+  margin: 10px 0 0 50px;
+}
+.iconButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .nav {
   display: flex;
   justify-content: center;
   list-style: none;
-  /* margin: 0 auto; */
-  /* text-align: center; */
+  margin-right: 50px;
 }
 
 .navItem {

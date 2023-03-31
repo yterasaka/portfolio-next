@@ -3,9 +3,10 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import styles from "./index.module.css";
 import Greeting from "../Greeting";
 import About from "../About";
-import ProjectA from "../ProjectA";
-import ProjectB from "../ProjectB";
+import Project from "../Project";
 import Contact from "../Contact";
+import Image from "next/image";
+import Icon from "../../../public/images/icon.png";
 
 // NOTE: if using fullpage extensions/plugins put them here and pass it as props.
 const pluginWrapper = () => {
@@ -51,10 +52,12 @@ const Fullpage = () => {
         zIndex: 100,
       }}
     >
+      <div className={styles.icon}>
+        <button className={styles.iconButton} onClick={moveToOne}>
+          <Image src={Icon} width={30} height={30} alt="Icon" />
+        </button>
+      </div>
       <ul className={styles.nav}>
-        {/* <li> */}
-        {/* <button className={styles.navButton} onClick={moveToOne}> Move To One </button> */}
-        {/* </li> */}
         <li className={styles.navItem}>
           <button className={styles.navButton} onClick={moveToTwo}>
             Über mich
@@ -62,16 +65,11 @@ const Fullpage = () => {
         </li>
         <li className={styles.navItem}>
           <button className={styles.navButton} onClick={moveToThree}>
-            StickyNote
+            Projekte
           </button>
         </li>
         <li className={styles.navItem}>
           <button className={styles.navButton} onClick={moveToFour}>
-            Where Can I Eat Vegetarian?
-          </button>
-        </li>
-        <li className={styles.navItem}>
-          <button className={styles.navButton} onClick={moveToFive}>
             Kontakt
           </button>
         </li>
@@ -84,7 +82,6 @@ const Fullpage = () => {
       <Menu />
       <ReactFullpage
         licenseKey={"LL5R6-MGKU8-FKYU7-1HI47-JJHNK"}
-        // navigation
         pluginWrapper={pluginWrapper}
         onLeave={onLeave}
         credits={false}
@@ -98,10 +95,7 @@ const Fullpage = () => {
                 <About />
               </div>
               <div className="section">
-                <ProjectA />
-              </div>
-              <div className="section">
-                <ProjectB />
+                <Project />
               </div>
               <div className="section">
                 <Contact />

@@ -25,16 +25,14 @@ const About = () => {
         <p>
           Ende 2021 begann meine Reise in die Welt der Webentwicklung.
           Autodidaktisch habe ich mich in die Frontend-Entwicklung eingearbeitet
-          und bisher zwei eigene Webapplikationen entwickelt.{" "}
-          <strong>StickyNote</strong> ist eine intuitive Notizen-App, für die
-          ich mit React eine nahtlose User Experience geschaffen habe.{" "}
-          <strong>Where Can I Eat Vegetarian?</strong> ist eine hilfreiche
-          Webapplikation, die es Nutzern ermöglicht, Restaurants in Japan zu
-          finden, die vegetarisches Essen anbieten. Für die zweite
-          Webapplikation habe ich Next.js und Strapi verwendet und die Google
-          Maps API sowie die Yelp API integriert.
+          und bisher zwei eigene Webapplikationen entwickelt. <i>StickyNote</i>{" "}
+          ist eine intuitive Notizen-App, für die ich mit React eine nahtlose
+          User Experience geschaffen habe. <i>Where Can I Eat Vegetarian?</i>{" "}
+          ist eine hilfreiche Webapplikation, die es Nutzern ermöglicht,
+          Restaurants in Japan zu finden, die vegetarisches Essen anbieten. Für
+          die zweite Webapplikation habe ich Next.js und Strapi verwendet und
+          die Google Maps API sowie die Yelp API integriert.
         </p>
-
         <p>
           Als kreativer Problemlöser und ständiger Lernender bin ich von der
           Webentwicklung begeistert und freue mich auf neue Herausforderungen

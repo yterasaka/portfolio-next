@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  gap: 0 3rem;
+  align-items: left;
+  margin: 0 75px;
+  padding: 0 3rem;
+}
+
+.textContainer {
+  width: 50%;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  font-size: 1.2rem;
+}
+
+.iconContainer {
+  display: flex;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}
+
+.icon {
+  margin: 0 0.5rem;
+  vertical-align: -3px;
+  color: #000;
+  cursor: pointer;
+}
+
+.iconTool {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  letter-spacing: 1rem;
+}

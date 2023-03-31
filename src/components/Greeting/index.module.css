@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin: 0 75px;
+  padding: 0 1.5rem 0 3rem;
+}
+
+.greeting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  padding-right: 3.5rem;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.greetingText {
+  margin-right: auto;
+  font-size: 3rem;
+}
+
+.image {
+  justify-content: center;
+  width: 35%;
+}

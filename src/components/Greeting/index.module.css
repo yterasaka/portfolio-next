@@ -22,5 +22,34 @@
 
 .image {
   justify-content: center;
-  width: 35%;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 30px 0;
+    margin: auto 20px;
+    flex-flow: column;
+    height: 100vh;
+    justify-content: center;
+  }
+  .greeting {
+    padding-right: 0;
+  }
+  .greetingText {
+    font-size: 2.5rem;
+  }
+  .imageContainer {
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .greetingText {
+    font-size: 1.8rem;
+  }
+  .image {
+    width: 150px;
+    height: 150px;
+  }
 }

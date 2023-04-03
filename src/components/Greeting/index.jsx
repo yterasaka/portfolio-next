@@ -13,8 +13,14 @@ const Greeting = () => {
           Ich bin engagierter Frontend-Entwickler mit Schwerpunkt React.
         </h1>
       </div>
-      <div className={styles.image}>
-        <Image src={profilePic} width={300} height={300} alt="My Portrait" />
+      <div className={styles.imageContainer}>
+        <Image
+          className={styles.image}
+          src={profilePic}
+          width={300}
+          height={300}
+          alt="My Portrait"
+        />
       </div>
     </div>
   );

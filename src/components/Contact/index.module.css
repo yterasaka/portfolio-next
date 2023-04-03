@@ -28,3 +28,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media screen and (max-width: 1024px) {
+  .iconContainer {
+    margin-bottom: 300px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .iconContainer {
+    gap: 0 3.5rem;
+    margin-bottom: 250px;
+  }
+  .icon {
+    font-size: 2rem;
+  }
+}

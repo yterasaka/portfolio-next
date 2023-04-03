@@ -37,3 +37,33 @@
   font-size: 1.3rem;
   letter-spacing: 1rem;
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 0 1rem;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .textContainer {
+    width: 100%;
+  }
+  .iconTool {
+    margin-bottom: 75px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .container {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+  .title {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: auto;
+  }
+  .iconContainer {
+    margin-left: 0;
+  }
+}

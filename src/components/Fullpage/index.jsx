@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import styles from "./index.module.css";
 import Greeting from "../Greeting";
@@ -16,15 +16,8 @@ const pluginWrapper = () => {
 };
 
 const Fullpage = () => {
-  const [currentSection, setCurrentSection] = useState(0);
-  console.log("test", currentSection);
-
   const onLeave = (origin, destination, direction, section) => {
     console.log("onLeave", { origin, destination, direction, section });
-    const newSection = destination.index;
-    setCurrentSection(newSection);
-    // arguments are mapped in order of fullpage.js callback arguments do something
-    // with the event
   };
 
   const moveToOne = () => {
@@ -38,9 +31,6 @@ const Fullpage = () => {
   };
   const moveToFour = () => {
     return fullpage_api.moveTo(4);
-  };
-  const moveToFive = () => {
-    return fullpage_api.moveTo(5);
   };
 
   const Menu = () => (
@@ -84,20 +74,23 @@ const Fullpage = () => {
         licenseKey={"LL5R6-MGKU8-FKYU7-1HI47-JJHNK"}
         pluginWrapper={pluginWrapper}
         onLeave={onLeave}
+        scrollOverflow={false}
+        responsiveWidth={"1024"}
+        bigSectionsDestination={"top"}
         credits={false}
         render={() =>
           console.log("render prop change") || (
             <ReactFullpage.Wrapper>
-              <div className="section">
+              <div className="section fp-auto-height-responsive">
                 <Greeting />
               </div>
-              <div className="section">
+              <div className="section fp-auto-height-responsive">
                 <About />
               </div>
-              <div className="section">
+              <div className="section fp-auto-height-responsive">
                 <Project />
               </div>
-              <div className="section">
+              <div className="section fp-auto-height-responsive">
                 <Contact />
               </div>
             </ReactFullpage.Wrapper>

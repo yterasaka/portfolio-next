@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import styles from "./index.module.css";
 import Greeting from "../Greeting";
@@ -16,8 +16,67 @@ const pluginWrapper = () => {
 };
 
 const Fullpage = () => {
+  const [currentSection, setCurrentSection] = useState(0);
+  const underlineRef = useRef();
+
+  // ヘッダーメニューの下線をスライド
+  useEffect(() => {
+    const menuItems = document.querySelectorAll(`.${styles.navButton}`);
+    const underline = underlineRef.current;
+
+    menuItems.forEach((item) => {
+      item.addEventListener("mouseover", (event) => {
+        const target = event.target;
+        const targetWidth = target.offsetWidth;
+        const targetOffsetLeft = target.offsetLeft;
+
+        underline.style.width = `${targetWidth - 16}px`;
+        underline.style.left = `${targetOffsetLeft + 8}px`;
+      });
+    });
+
+    const menu = document.querySelector(`.${styles.menu}`);
+    menu.addEventListener("mouseleave", () => {
+      if (currentSection) {
+        const targetWidth = menuItems[currentSection - 1].offsetWidth;
+        const targetOffsetLeft = menuItems[currentSection - 1].offsetLeft;
+
+        underline.style.width = `${targetWidth - 16}px`;
+        underline.style.left = `${targetOffsetLeft + 8}px`;
+      } else {
+        underline.style.width = "0";
+      }
+    });
+
+    const handleScroll = () => {
+      if (currentSection === 0) {
+        return;
+      }
+      if (currentSection) {
+        const targetWidth = menuItems[currentSection - 1].offsetWidth;
+        const targetOffsetLeft = menuItems[currentSection - 1].offsetLeft;
+
+        underline.style.width = `${targetWidth - 16}px`;
+        underline.style.left = `${targetOffsetLeft + 8}px`;
+      } else {
+        underline.style.width = "0";
+      }
+    };
+    handleScroll();
+
+    return () => {
+      menuItems.forEach((item) => {
+        item.removeEventListener("mouseover", null);
+      });
+      menu?.removeEventListener("mouseleave", null);
+    };
+  }, [currentSection]);
+
   const onLeave = (origin, destination, direction, section) => {
-    console.log("onLeave", { origin, destination, direction, section });
+    // console.log("onLeave", { origin, destination, direction, section });
+
+    const activeSection = destination.index;
+    setCurrentSection(activeSection);
   };
 
   const moveToOne = () => {
@@ -47,23 +106,26 @@ const Fullpage = () => {
           <Image src={Icon} width={30} height={30} alt="Icon" />
         </button>
       </div>
-      <ul className={styles.nav}>
-        <li className={styles.navItem}>
-          <button className={styles.navButton} onClick={moveToTwo}>
-            Über mich
-          </button>
-        </li>
-        <li className={styles.navItem}>
-          <button className={styles.navButton} onClick={moveToThree}>
-            Projekte
-          </button>
-        </li>
-        <li className={styles.navItem}>
-          <button className={styles.navButton} onClick={moveToFour}>
-            Kontakt
-          </button>
-        </li>
-      </ul>
+      <nav className={styles.menu}>
+        <ul className={styles.nav}>
+          <li className={styles.navItem}>
+            <button className={styles.navButton} onClick={moveToTwo}>
+              Über mich
+            </button>
+          </li>
+          <li className={styles.navItem}>
+            <button className={styles.navButton} onClick={moveToThree}>
+              Projekte
+            </button>
+          </li>
+          <li className={styles.navItem}>
+            <button className={styles.navButton} onClick={moveToFour}>
+              Kontakt
+            </button>
+          </li>
+        </ul>
+        <span ref={underlineRef} className={styles.underline}></span>
+      </nav>
     </div>
   );
 

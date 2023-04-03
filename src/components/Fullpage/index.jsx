@@ -16,15 +16,8 @@ const pluginWrapper = () => {
 };
 
 const Fullpage = () => {
-  // const [currentSection, setCurrentSection] = useState(0);
-  // console.log("test", currentSection);
-
   const onLeave = (origin, destination, direction, section) => {
     console.log("onLeave", { origin, destination, direction, section });
-    // const newSection = destination.index;
-    // setCurrentSection(newSection);
-    // arguments are mapped in order of fullpage.js callback arguments do something
-    // with the event
   };
 
   const moveToOne = () => {

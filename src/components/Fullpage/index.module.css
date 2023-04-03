@@ -41,13 +41,19 @@
 }
 
 @media screen and (max-width: 640px) {
+  .header {
+    justify-content: center;
+  }
   .icon {
-    margin: 10px 0 0 20px;
+    display: none;
   }
   .nav {
-    margin-right: 10px;
+    padding-left: 0;
+    margin-right: 0;
+    gap: 1.2rem;
   }
   .navItem {
+    margin-right: 0;
     font-size: 0.8rem;
   }
 }

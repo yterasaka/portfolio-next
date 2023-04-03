@@ -16,9 +16,9 @@
 
 @media screen and (max-width: 1024px) {
   .container {
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 100px;
-    padding: 0 1rem;
+    padding: 50px 1rem;
   }
   .skill {
     margin-top: 50px;

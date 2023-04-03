@@ -39,7 +39,7 @@ const About = () => {
           und die ständige Weiterentwicklung meiner Fähigkeiten.
         </p>
       </div>
-      <div>
+      <div className={styles.skill}>
         <h2>Skill</h2>
         <div className={styles.icon}>
           <SiJavascript /> <SiReact /> <SiNextdotjs /> <SiHtml5 /> <SiCss3 />{" "}

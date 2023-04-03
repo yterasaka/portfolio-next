@@ -13,3 +13,20 @@
 .icon {
   font-size: 3rem;
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 0 1rem;
+  }
+  .skill {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .container {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}

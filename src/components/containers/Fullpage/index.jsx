@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import styles from "./index.module.css";
-import Greeting from "../Greeting";
-import About from "../About";
-import Project from "../Project";
-import Contact from "../Contact";
+import Greeting from "../../sections/Greeting";
+import About from "../../sections/About";
+import Project from "../../sections/Project";
+import Contact from "../../sections/Contact";
 import Image from "next/image";
-import Icon from "../../../public/images/icon.png";
+import Icon from "../../../../public/images/icon.png";
 
 const licenceKey = process.env.NEXT_PUBLIC_FULLPAGEJS_LICENSE_KEY;
 

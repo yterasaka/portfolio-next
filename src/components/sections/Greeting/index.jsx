@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./index.module.css";
-import profilePic from "../../../public/images/profilePic.png";
+import profilePic from "../../../../public/images/profilePic.png";
 
 const Greeting = () => {
   return (

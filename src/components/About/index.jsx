@@ -42,7 +42,7 @@ const About = () => {
       <div className={styles.skill}>
         <h2>Skills</h2>
         <div className={styles.icon}>
-          <SiJavascript /> <SiReact /> <SiNextdotjs /> <SiHtml5 /> <SiCss3 />{" "}
+          <SiJavascript /> <SiReact /> <SiNextdotjs /> <SiHtml5 /> <SiCss3 />
           <SiGit /> <SiAdobephotoshop /> <SiAdobeindesign />
         </div>
       </div>

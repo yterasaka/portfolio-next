@@ -30,6 +30,7 @@
     margin: auto 20px;
     flex-flow: column;
     height: 100vh;
+    /* スマホで上が詰まる */
     justify-content: center;
   }
   .greeting {

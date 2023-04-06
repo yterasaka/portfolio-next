@@ -8,6 +8,8 @@ import Contact from "../Contact";
 import Image from "next/image";
 import Icon from "../../../public/images/icon.png";
 
+const licenceKey = process.env.NEXT_PUBLIC_FULLPAGEJS_LICENSE_KEY;
+
 // NOTE: if using fullpage extensions/plugins put them here and pass it as props.
 const pluginWrapper = () => {
   /*
@@ -24,6 +26,7 @@ const Fullpage = () => {
     const menuItems = document.querySelectorAll(`.${styles.navButton}`);
     const underline = underlineRef.current;
 
+    // Reactっぽくない。書き直してみる。
     menuItems.forEach((item) => {
       item.addEventListener("mouseover", (event) => {
         const target = event.target;
@@ -48,21 +51,18 @@ const Fullpage = () => {
       }
     });
 
-    const handleScroll = () => {
-      if (currentSection === 0) {
-        return;
-      }
-      if (currentSection) {
-        const targetWidth = menuItems[currentSection - 1].offsetWidth;
-        const targetOffsetLeft = menuItems[currentSection - 1].offsetLeft;
+    if (currentSection === 0) {
+      return;
+    }
+    if (currentSection) {
+      const targetWidth = menuItems[currentSection - 1].offsetWidth;
+      const targetOffsetLeft = menuItems[currentSection - 1].offsetLeft;
 
-        underline.style.width = `${targetWidth - 16}px`;
-        underline.style.left = `${targetOffsetLeft + 8}px`;
-      } else {
-        underline.style.width = "0";
-      }
-    };
-    handleScroll();
+      underline.style.width = `${targetWidth - 16}px`;
+      underline.style.left = `${targetOffsetLeft + 8}px`;
+    } else {
+      underline.style.width = "0";
+    }
 
     return () => {
       menuItems.forEach((item) => {
@@ -133,7 +133,7 @@ const Fullpage = () => {
     <div>
       <Menu />
       <ReactFullpage
-        licenseKey={"LL5R6-MGKU8-FKYU7-1HI47-JJHNK"}
+        licenseKey={licenceKey}
         pluginWrapper={pluginWrapper}
         onLeave={onLeave}
         scrollOverflow={false}

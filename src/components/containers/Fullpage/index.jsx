@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
-import styles from "./index.module.css";
 import Greeting from "../../sections/Greeting";
 import About from "../../sections/About";
 import Project from "../../sections/Project";
 import Contact from "../../sections/Contact";
-import Image from "next/image";
-import Icon from "../../../../public/images/icon.png";
+import { Menu } from "./Menu";
 
 const licenceKey = process.env.NEXT_PUBLIC_FULLPAGEJS_LICENSE_KEY;
 
@@ -19,119 +17,16 @@ const pluginWrapper = () => {
 
 const Fullpage = () => {
   const [currentSection, setCurrentSection] = useState(0);
-  const underlineRef = useRef();
 
-  // ヘッダーメニューの下線をスライド
-  useEffect(() => {
-    const menuItems = document.querySelectorAll(`.${styles.navButton}`);
-    const underline = underlineRef.current;
-
-    // Reactっぽくない。書き直してみる。
-    menuItems.forEach((item) => {
-      item.addEventListener("mouseover", (event) => {
-        const target = event.target;
-        const targetWidth = target.offsetWidth;
-        const targetOffsetLeft = target.offsetLeft;
-
-        underline.style.width = `${targetWidth - 16}px`;
-        underline.style.left = `${targetOffsetLeft + 8}px`;
-      });
-    });
-
-    const menu = document.querySelector(`.${styles.menu}`);
-    menu.addEventListener("mouseleave", () => {
-      if (currentSection) {
-        const targetWidth = menuItems[currentSection - 1].offsetWidth;
-        const targetOffsetLeft = menuItems[currentSection - 1].offsetLeft;
-
-        underline.style.width = `${targetWidth - 16}px`;
-        underline.style.left = `${targetOffsetLeft + 8}px`;
-      } else {
-        underline.style.width = "0";
-      }
-    });
-
-    if (currentSection === 0) {
-      return;
-    }
-    if (currentSection) {
-      const targetWidth = menuItems[currentSection - 1].offsetWidth;
-      const targetOffsetLeft = menuItems[currentSection - 1].offsetLeft;
-
-      underline.style.width = `${targetWidth - 16}px`;
-      underline.style.left = `${targetOffsetLeft + 8}px`;
-    } else {
-      underline.style.width = "0";
-    }
-
-    return () => {
-      menuItems.forEach((item) => {
-        item.removeEventListener("mouseover", null);
-      });
-      menu?.removeEventListener("mouseleave", null);
-    };
-  }, [currentSection]);
-
-  const onLeave = (origin, destination, direction, section) => {
-    // console.log("onLeave", { origin, destination, direction, section });
-
+  // アンダーバーのみの変数は、単純に引数として書く必要があるため、記述はされたが特に使われていないから気にしてくてOK、という意味
+  const onLeave = (_, destination) => {
     const activeSection = destination.index;
     setCurrentSection(activeSection);
   };
 
-  const moveToOne = () => {
-    return fullpage_api.moveTo(1);
-  };
-  const moveToTwo = () => {
-    return fullpage_api.moveTo(2);
-  };
-  const moveToThree = () => {
-    return fullpage_api.moveTo(3);
-  };
-  const moveToFour = () => {
-    return fullpage_api.moveTo(4);
-  };
-
-  const Menu = () => (
-    <div
-      className={styles.header}
-      style={{
-        position: "fixed",
-        top: 0,
-        zIndex: 100,
-      }}
-    >
-      <div className={styles.icon}>
-        <button className={styles.iconButton} onClick={moveToOne}>
-          <Image src={Icon} width={30} height={30} alt="Icon" />
-        </button>
-      </div>
-      <nav className={styles.menu}>
-        <ul className={styles.nav}>
-          <li className={styles.navItem}>
-            <button className={styles.navButton} onClick={moveToTwo}>
-              Über mich
-            </button>
-          </li>
-          <li className={styles.navItem}>
-            <button className={styles.navButton} onClick={moveToThree}>
-              Projekte
-            </button>
-          </li>
-          <li className={styles.navItem}>
-            <button className={styles.navButton} onClick={moveToFour}>
-              Kontakt
-            </button>
-          </li>
-        </ul>
-        <span ref={underlineRef} className={styles.underline}></span>
-      </nav>
-    </div>
-  );
-
   return (
     <div>
-      <Menu />
+      <Menu currentSection={currentSection} />
       <ReactFullpage
         licenseKey={licenceKey}
         pluginWrapper={pluginWrapper}
@@ -140,24 +35,22 @@ const Fullpage = () => {
         responsiveWidth={"1024"}
         bigSectionsDestination={"top"}
         credits={false}
-        render={() =>
-          console.log("render prop change") || (
-            <ReactFullpage.Wrapper>
-              <div className="section fp-auto-height-responsive">
-                <Greeting />
-              </div>
-              <div className="section fp-auto-height-responsive">
-                <About />
-              </div>
-              <div className="section fp-auto-height-responsive">
-                <Project />
-              </div>
-              <div className="section fp-auto-height-responsive">
-                <Contact />
-              </div>
-            </ReactFullpage.Wrapper>
-          )
-        }
+        render={() => (
+          <ReactFullpage.Wrapper>
+            <div className="section fp-auto-height-responsive">
+              <Greeting />
+            </div>
+            <div className="section fp-auto-height-responsive">
+              <About />
+            </div>
+            <div className="section fp-auto-height-responsive">
+              <Project />
+            </div>
+            <div className="section fp-auto-height-responsive">
+              <Contact />
+            </div>
+          </ReactFullpage.Wrapper>
+        )}
       />
     </div>
   );

@@ -1,28 +1,28 @@
 import React, { useState, useRef } from "react";
 import styles from "./index.module.css";
-import { MenuItem } from "./MenuItem";
+// import { MenuItem } from "./MenuItem";
 import Image from "next/image";
 import Icon from "../../../../public/images/icon.png";
 
-const initialState = {
-  width: 0,
-  offsetLeft: 0,
-};
+// const initialState = {
+//   width: 0,
+//   offsetLeft: 0,
+// };
 
 export const Menu = ({ currentSection }) => {
-  const underlineRef = useRef();
-  const [currentStyle, setCurrentStyle] = useState(initialState);
+  // const underlineRef = useRef();
+  // const [currentStyle, setCurrentStyle] = useState(initialState);
 
-  const handleClick = (targetWidth, targetOffsetLeft, targetIndex) => {
-    setCurrentStyle({ with: targetWidth, offsetLeft: targetOffsetLeft });
-    fullpage_api.moveTo(targetIndex);
-  };
-  const moveToOne = () => {
-    setCurrentStyle(initialState);
-    underlineRef.current.style.width = 0;
-    underlineRef.current.style.left = 0;
-    fullpage_api.moveTo(1);
-  };
+  // const handleClick = (targetWidth, targetOffsetLeft, targetIndex) => {
+  //   setCurrentStyle({ with: targetWidth, offsetLeft: targetOffsetLeft });
+  //   fullpage_api.moveTo(targetIndex);
+  // };
+  // const moveToOne = () => {
+  //   setCurrentStyle(initialState);
+  //   underlineRef.current.style.width = 0;
+  //   underlineRef.current.style.left = 0;
+  //   fullpage_api.moveTo(1);
+  // };
 
   return (
     <div
@@ -34,11 +34,11 @@ export const Menu = ({ currentSection }) => {
       }}
     >
       <div className={styles.icon}>
-        <button className={styles.iconButton} onClick={moveToOne}>
-          <Image src={Icon} width={30} height={30} alt="Icon" />
-        </button>
+        {/* <button className={styles.iconButton} onClick={moveToOne}> */}
+        <Image src={Icon} width={30} height={30} alt="Icon" />
+        {/* </button> */}
       </div>
-      <nav className={styles.menu}>
+      {/* <nav className={styles.menu}>
         <ul className={styles.nav}>
           <MenuItem
             onClick={(width, offsetLeft) => handleClick(width, offsetLeft, 2)}
@@ -72,7 +72,7 @@ export const Menu = ({ currentSection }) => {
           </MenuItem>
         </ul>
         <span ref={underlineRef} className={styles.underline}></span>
-      </nav>
+      </nav> */}
     </div>
   );
 };

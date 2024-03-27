@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import ReactFullpage from "@fullpage/react-fullpage";
+// import ReactFullpage from "@fullpage/react-fullpage";
 import Greeting from "../../sections/Greeting";
 import About from "../../sections/About";
 import Project from "../../sections/Project";
 import Contact from "../../sections/Contact";
 import { Menu } from "./Menu";
+import styles from "./index.module.css";
 
 const licenceKey = process.env.NEXT_PUBLIC_FULLPAGEJS_LICENSE_KEY;
 
 // NOTE: if using fullpage extensions/plugins put them here and pass it as props.
-const pluginWrapper = () => {
-  /*
-   * require('../static/fullpage.scrollHorizontally.min.js'); // Optional. Required when using the "scrollHorizontally" extension.
-   */
-};
+// const pluginWrapper = () => {
+//   /*
+//    * require('../static/fullpage.scrollHorizontally.min.js'); // Optional. Required when using the "scrollHorizontally" extension.
+//    */
+// };
 
 const Fullpage = () => {
   const [currentSection, setCurrentSection] = useState(0);
@@ -27,7 +28,19 @@ const Fullpage = () => {
   return (
     <div>
       <Menu currentSection={currentSection} />
-      <ReactFullpage
+      <div className={styles.top}>
+        <Greeting />
+      </div>
+      <div className={styles.second}>
+        <About />
+      </div>
+      <div className={styles.third}>
+        <Project />
+      </div>
+      <div className={styles.forth}>
+        <Contact />
+      </div>
+      {/* <ReactFullpage
         licenseKey={licenceKey}
         pluginWrapper={pluginWrapper}
         onLeave={onLeave}
@@ -51,7 +64,7 @@ const Fullpage = () => {
             </div>
           </ReactFullpage.Wrapper>
         )}
-      />
+      /> */}
     </div>
   );
 };

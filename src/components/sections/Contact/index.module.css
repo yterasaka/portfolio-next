@@ -22,12 +22,12 @@
   font-size: 3rem;
 }
 
-.footer {
+/* .footer {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
 @media screen and (max-width: 1024px) {
   .iconContainer {

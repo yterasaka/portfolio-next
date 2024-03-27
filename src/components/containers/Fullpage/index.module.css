@@ -72,3 +72,28 @@
     font-size: 0.8rem;
   }
 }
+
+@media screen and (min-width: 1025px) {
+  .top {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .second {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .third {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .forth {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+}
